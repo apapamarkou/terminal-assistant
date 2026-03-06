@@ -88,10 +88,13 @@ def commit():
         return
     
     # Commit
-    if git_commit(edited_message):
+    success, error = git_commit(edited_message)
+    if success:
         console.print("[green]✓ Committed successfully[/green]")
     else:
-        console.print("[red]Error: Commit failed[/red]")
+        console.print(f"[red]Error: Commit failed[/red]")
+        if error:
+            console.print(f"[red]{error}[/red]")
         raise typer.Exit(1)
 
 

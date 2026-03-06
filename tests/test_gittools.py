@@ -58,8 +58,9 @@ def test_git_commit_success(tmp_path, monkeypatch):
     test_file.write_text("content")
     subprocess.run(["git", "add", "."], capture_output=True)
     
-    result = git_commit("Test commit")
-    assert result is True
+    success, error = git_commit("Test commit")
+    assert success is True
+    assert error == ""
 
 
 def test_git_commit_no_changes(tmp_path, monkeypatch):
@@ -69,5 +70,6 @@ def test_git_commit_no_changes(tmp_path, monkeypatch):
     subprocess.run(["git", "config", "user.email", "test@test.com"], capture_output=True)
     subprocess.run(["git", "config", "user.name", "Test"], capture_output=True)
     
-    result = git_commit("Empty commit")
-    assert result is False
+    success, error = git_commit("Empty commit")
+    assert success is False
+    assert error != ""

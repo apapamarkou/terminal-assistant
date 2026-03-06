@@ -36,15 +36,16 @@ def get_git_diff() -> Optional[str]:
         return None
 
 
-def git_commit(message: str) -> bool:
+def git_commit(message: str) -> tuple[bool, str]:
     """Commit changes with the given message."""
     try:
-        subprocess.run(
-            ["git", "commit", "-m", message],
+        result = subprocess.run(
+            ["git", "commit", "-am", message],
             check=True,
             capture_output=True,
             text=True
         )
-        return True
-    except subprocess.CalledProcessError:
-        return False
+        return True, ""
+    except subprocess.CalledProcessError as e:
+        error_msg = e.stderr.strip() or e.stdout.strip()
+        return False, error_msg
