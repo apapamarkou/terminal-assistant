@@ -18,16 +18,18 @@ AI-powered terminal assistant using local Ollama models. Get instant help, gener
 
 ## Installation
 
+### Recommended (pipx)
+
+Install `pipx` if you don't have it:
+
 ```bash
-# Clone the repository
-git clone <repository-url>
-cd terminal-assistant
+pip install pipx
+pipx ensurepath
+```
+Then install `terminal-assistant`:
 
-# Install in development mode
-pip install -e .
-
-# Or install with dev dependencies
-pip install -e ".[dev]"
+```bash
+pipx install git+https://github.com/apapamarkou/terminal-assistant
 ```
 
 ## Quick Start
