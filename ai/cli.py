@@ -71,8 +71,6 @@ def commit():
         console.print(f"[red]Error: {e}[/red]")
         raise typer.Exit(1)
     
-    console.print(Panel(commit_message, title="Generated Commit Message"))
-    
     # Open in editor
     edited_message = edit_text(commit_message)
     
@@ -80,11 +78,14 @@ def commit():
         console.print("[yellow]Commit message is empty. Aborting.[/yellow]")
         raise typer.Exit(0)
     
+    # Show edited message
+    console.print(Panel(edited_message, title="Commit Message"))
+    
     # Confirm
     confirm = typer.confirm("Commit with this message?")
     if not confirm:
         console.print("[yellow]Commit cancelled[/yellow]")
-        raise typer.Exit(0)
+        return
     
     # Commit
     if git_commit(edited_message):

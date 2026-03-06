@@ -17,6 +17,7 @@ def edit_text(initial_text: str) -> str:
     
     with tempfile.NamedTemporaryFile(mode="w", suffix=".txt", delete=False) as f:
         f.write(initial_text)
+        f.flush()
         temp_path = f.name
     
     try:

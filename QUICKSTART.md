@@ -1,6 +1,6 @@
 # Quick Start Guide
 
-Get up and running with Terminal Assistant in 5 minutes.
+Get up and running with Terminal Assistant in 3 minutes.
 
 ## Prerequisites
 

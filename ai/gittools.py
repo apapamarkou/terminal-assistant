@@ -40,7 +40,7 @@ def git_commit(message: str) -> bool:
     """Commit changes with the given message."""
     try:
         subprocess.run(
-            ["git", "commit", "-am", message],
+            ["git", "commit", "-m", message],
             check=True,
             capture_output=True,
             text=True
