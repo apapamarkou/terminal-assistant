@@ -1,0 +1,29 @@
+# Terminal Assistant Configuration Example
+# Copy this to ~/.config/ai/config.toml and customize
+
+# The Ollama model to use for responses
+# Popular options: codellama, llama2, mistral, phi, gemma
+model = "codellama"
+
+# Number of previous messages to include in conversation context
+# Higher values provide more context but use more tokens
+# Range: 1-100, recommended: 10-30
+history_size = 20
+
+# Ollama API endpoint
+# Default: http://localhost:11434
+# Change if running Ollama on a different host/port
+ollama_url = "http://localhost:11434"
+
+# Example configurations for different use cases:
+
+# For faster responses (smaller model):
+# model = "llama2"
+# history_size = 10
+
+# For more context-aware conversations:
+# model = "codellama"
+# history_size = 50
+
+# For remote Ollama instance:
+# ollama_url = "http://192.168.1.100:11434"
